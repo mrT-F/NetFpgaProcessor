@@ -1,0 +1,41 @@
+#!/bin/bash
+
+#Script sets up and begins to compile a new project
+
+#check if they have provided a path name
+if [ -z "$1" ];
+then
+	printf "Usage: ./newReferenceRouterProject <directory name>\n"
+	exit
+fi
+
+#Check if directory exists, delete it if so
+if [ -d /root/netfpga/projects/$1 ]
+then
+	rm -rf /root/netfpga/projects/$1
+fi
+
+#Now make new directory
+mkdir /root/netfpga/projects/$1
+#make src directory
+mkdir /root/netfpga/projects/$1/src
+#copy over all reference router files
+cp -rf /root/netfpga/projects/reference_router/* /root/netfpga/projects/$1/
+
+#now copy over files in our folder to the correct folder
+#Copy xml files to  synth folder
+cp ./*.xml /root/netfpga/projects/$1/include/
+#copy .v files to src
+cp ./*.v /root/netfpga/projects/$1/src/
+#copy .xco to src
+cp ./*.xco /root/netfpga/projects/$1/src/ 
+#copy .ngc to synth
+cp ./*.ngc /root/netfpga/projects/$1/synth/
+
+#Make project
+cd /root/netfpga/projects/$1/synth
+make
+
+#Tell them where to look
+printf "You will find the generated bitfile in /root/netfpga/bitfiles/$1.bit\n"
+

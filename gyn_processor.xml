@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<nf:module xmlns:nf="http://www.NetFPGA.org/NF2_register_system" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.NetFPGA.org/NF2_register_system NF2_register_system.xsd ">
+	<nf:name>gyn_processor</nf:name>
+	<nf:prefix>gyn</nf:prefix>
+	<nf:location>udp</nf:location>
+	<nf:description>Registers for gyn processor</nf:description>
+	<nf:blocksize>64</nf:blocksize>
+	<nf:registers>
+		<nf:register>
+		  <nf:name>instr_addr</nf:name>
+			<nf:description>Address of instructionMEM we want to store</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+		<nf:register>
+		  <nf:name>instr_data</nf:name>
+			<nf:description>Data of instructionMEM we want to store</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+		<nf:register>
+		  <nf:name>data_addr</nf:name>
+			<nf:description>Address of dataMEM we want to store</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+		<nf:register>
+		  <nf:name>data_dataLow</nf:name>
+			<nf:description>High 32 bits of data of dataMEM we want to store</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+		<nf:register>
+		  <nf:name>data_dataHigh</nf:name>
+			<nf:description>Low 32 bits of data of dataMEM we want to store</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+		<nf:register>
+		  <nf:name>datapath_cmd</nf:name>
+			<nf:description>Command Register</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+		<nf:register>
+		  <nf:name>mode</nf:name>
+			<nf:description>Flag to test if read or write or execute</nf:description>
+			<nf:type>generic_software32</nf:type>
+		</nf:register>
+        <nf:register>
+		  <nf:name>data_high0</nf:name>
+			<nf:description>data with address 0 in dataMEM</nf:description>
+			<nf:type>generic_hardware32</nf:type>
+		</nf:register>
+        <nf:register>
+		  <nf:name>data_low0</nf:name>
+			<nf:description>data with address 1 in dataMEM</nf:description>
+			<nf:type>generic_hardware32</nf:type>
+		</nf:register>
+        <nf:register>
+		  <nf:name>data_high1</nf:name>
+			<nf:description>data with address 0 in dataMEM</nf:description>
+			<nf:type>generic_hardware32</nf:type>
+		</nf:register>
+        <nf:register>
+		  <nf:name>data_low1</nf:name>
+			<nf:description>data with address 1 in dataMEM</nf:description>
+			<nf:type>generic_hardware32</nf:type>
+		</nf:register>
+	</nf:registers>
+</nf:module>
+
